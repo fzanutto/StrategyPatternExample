@@ -1,9 +1,13 @@
 import {ActionStrategy} from './ActionStrategy'
 
-export default class Duplicate implements ActionStrategy {
+export class Duplicate implements ActionStrategy {
+
+    constructor() {
+        console.log("Duplicate instaciado")
+    }
 
     doAction(): void {
-        throw new Error('Method not implemented.');
+        console.log("TODO: fazer isso aqui")
     }
 
 }

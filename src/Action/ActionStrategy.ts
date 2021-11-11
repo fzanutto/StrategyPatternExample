@@ -1,3 +1,3 @@
 export interface ActionStrategy {
-    doAction(): void;
+    doAction(htmlElement: HTMLElement): void;
 }

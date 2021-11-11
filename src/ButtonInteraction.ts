@@ -2,10 +2,14 @@ import {LogStrategy} from './Log'
 import {ActionStrategy} from './Action'
 
 export class ButtonInteraction {
-    constructor(public logStrategy: LogStrategy, public actionStrategy: ActionStrategy){}
+    constructor(private htmlElement: HTMLElement, public logStrategy: LogStrategy, public actionStrategy: ActionStrategy){
+        this.htmlElement.addEventListener('click', () => {this.onClick()})
 
-    public onClick() {
+        console.log(this)
+    }
+
+    private onClick() {
         this.logStrategy.logInformation("Recebeu um click")
-        this.actionStrategy.doAction()
+        this.actionStrategy.doAction(this.htmlElement)
     }
 }

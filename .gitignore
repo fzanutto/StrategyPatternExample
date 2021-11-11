@@ -99,3 +99,6 @@ tests/cases/user/axios-src/axios-src
 tests/cases/user/prettier/prettier
 .eslintcache
 build/
+.cache/
+.parcel-cache/
+dist/
