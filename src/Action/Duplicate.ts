@@ -2,12 +2,15 @@ import {ActionStrategy} from './ActionStrategy'
 
 export class Duplicate implements ActionStrategy {
 
-    constructor() {
-        console.log("Duplicate instaciado")
+    doAction(htmlClass: string): void {
+        const elements: HTMLCollectionOf<Element> = document.getElementsByClassName("action")
+        const lastButton = elements.item(0) as HTMLElement
+        const newElement = lastButton.cloneNode(true)
+        lastButton.parentElement?.append(newElement)
     }
 
-    doAction(): void {
-        console.log("TODO: fazer isso aqui")
+    public toString(): string {
+        return "Duplicate Action"
     }
 
 }

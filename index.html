@@ -3,13 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Strategy Pattern Example</title>
     </head>
     <body>
-        <h2>Hello World</h2>
-        <div id="info"></div>
+        <h2>Strategy Pattern Example</h2>
+        <div id="action-div">Actions On-Click:</div>
 
-        <button id="action">Click me!</button>
+        <div id="log-div">Logs On-Click:</div>
+
+        <div id="button-container">
+            <button class="action">Click me!</button>
+        </div>
+
+        <div id="log-container"></div>
 
         <script>
             var exports = {};

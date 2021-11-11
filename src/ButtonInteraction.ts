@@ -2,14 +2,22 @@ import {LogStrategy} from './Log'
 import {ActionStrategy} from './Action'
 
 export class ButtonInteraction {
-    constructor(private htmlElement: HTMLElement, public logStrategy: LogStrategy, public actionStrategy: ActionStrategy){
-        this.htmlElement.addEventListener('click', () => {this.onClick()})
+    constructor(private htmlClass: string, public logStrategy: LogStrategy, public actionStrategy: ActionStrategy){
+        this.updateButtons()
+    }
 
-        console.log(this)
+    private updateButtons() {
+        const elements: HTMLCollectionOf<Element> = document.getElementsByClassName("action")
+
+        for(let i = 0; i < elements.length; i++){
+            const button = elements.item(i) as HTMLElement
+            button.onclick = () => {this.onClick()}
+        }
     }
 
     private onClick() {
-        this.logStrategy.logInformation("Recebeu um click")
-        this.actionStrategy.doAction(this.htmlElement)
+        this.actionStrategy.doAction(this.htmlClass)
+        this.logStrategy.logInformation(this)
+        this.updateButtons()
     }
 }

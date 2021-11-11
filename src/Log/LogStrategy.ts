@@ -1,3 +1,5 @@
+import { ButtonInteraction } from "../ButtonInteraction";
+
 export interface LogStrategy {
-    logInformation(info: string): void;
+    logInformation(interaction: ButtonInteraction): void;
 }
